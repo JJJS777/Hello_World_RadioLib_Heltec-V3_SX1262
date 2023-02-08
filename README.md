@@ -18,10 +18,8 @@ Note: i don't use a heltec board, as you can see here (```board = esp32-s3-devki
 
 
 ## Pins for LoRa Chip and OLED on Heltec V3
-
 ### New ESP32 Heltec Board with LoRa SX1262
-
-#### According to the schematic Diagram (WORKS)
+#### According to the [schematic Diagram](https://resource.heltec.cn/download/WiFi_LoRa32_V3/HTIT-WB32LA(F)_V3_Schematic_Diagram.pdf) (WORKS)
 ##### LoRa sx1262
 ```cpp
 lora_nss: 8 //same as cs
