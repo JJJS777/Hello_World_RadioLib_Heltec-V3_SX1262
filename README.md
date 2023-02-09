@@ -32,15 +32,15 @@ lora_mosi: 10
 
 #### OLED
 ```
-scl 18
-sda 17
-rstOlcd 21
+oled_scl: 18
+oled_sda: 17
+oled_rst: 21
 
-// old u8x8 lib
-U8X8_SSD1306_128X64_NONAME_SW_I2C u8x8(scl, sda, rstOlcd);
-
-// new u8g2 lib
+// new u8g2 library
 U8G2_SSD1306_128X64_NONAME_1_SW_I2C u8g2(U8G2_R0, /* clock=*/18, /* data=*/17, /* reset=*/21);
+
+// old u8x8 library
+U8X8_SSD1306_128X64_NONAME_SW_I2C u8x8(scl, sda, rstOlcd);
 ```
 
 ### According to [scan](examples/helper) and [pins_arduino.h](https://github.com/Heltec-Aaron-Lee/WiFi_Kit_series/blob/master/esp32/variants/WIFI_LoRa_32_V3/pins_arduino.h) (WRONG)
