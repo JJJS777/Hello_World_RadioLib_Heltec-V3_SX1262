@@ -17,10 +17,9 @@ lib_deps =
 Note: i don't use a heltec board, as you can see here (```board = esp32-s3-devkitc-1```) and, because of that i didn't rely on the ```pins_arduino.h```in ```platformio\packages\framework-arduinoespressif32\variants\heltec_WIFI_LoRa_32_V3```.
 
 
-## Pins for LoRa Chip and OLED on Heltec V3
-### New ESP32 Heltec Board with LoRa SX1262
-#### According to the [schematic Diagram](https://resource.heltec.cn/download/WiFi_LoRa32_V3/HTIT-WB32LA(F)_V3_Schematic_Diagram.pdf) (WORKS)
-##### LoRa sx1262
+## Pins for LoRa Chip and OLED on Heltec WiFi LoRa 32 (V3)
+### According to the [schematic Diagram](https://resource.heltec.cn/download/WiFi_LoRa32_V3/HTIT-WB32LA(F)_V3_Schematic_Diagram.pdf) (WORKS)
+#### LoRa sx1262
 ```cpp
 lora_nss: 8 //same as cs
 lora_rst: 12 //same as nrst
@@ -31,7 +30,7 @@ lora_miso: 11
 lora_mosi: 10
  ```
 
-##### OLED
+#### OLED
 ```
 scl 18
 sda 17
@@ -44,25 +43,25 @@ U8X8_SSD1306_128X64_NONAME_SW_I2C u8x8(scl, sda, rstOlcd);
 U8G2_SSD1306_128X64_NONAME_1_SW_I2C u8g2(U8G2_R0, /* clock=*/18, /* data=*/17, /* reset=*/21);
 ```
 
-#### According to scan and pins_arduino.h (WRONG)
-+ pins_arduino.h got [changed](https://github.com/Heltec-Aaron-Lee/WiFi_Kit_series/commit/b624b342921ac69caf7fb4fa8ca8c4e38e02748f) after
+### According to [scan](examples/helper) and [pins_arduino.h](https://github.com/Heltec-Aaron-Lee/WiFi_Kit_series/blob/master/esp32/variants/WIFI_LoRa_32_V3/pins_arduino.h) (WRONG)
++ **NOTE**: pins_arduino.h got [changed](https://github.com/Heltec-Aaron-Lee/WiFi_Kit_series/commit/b624b342921ac69caf7fb4fa8ca8c4e38e02748f)
 
-```cpp
+```
 MOSI: 11
 MISO: 13
 SCK: 12
 SS: 10
 ```
 
-### RadioLib Example
-```cpp
-// SX1262 has the following connections:
-// NSS pin:   10 (cs Pin)
-// DIO1 pin:  2 (irq Pin)
-// NRST pin:  3 (rst pin) 
-// BUSY pin:  9 (gpio Pin)
-// SX1262 radio = new Module(10, 2, 3, 9);
-// Module(cs, irq, rst, gpio) 
+### Pins from the RadioLib Example
+```
+SX1262 has the following connections:
+NSS pin:   10 (cs Pin)
+DIO1 pin:  2 (irq Pin)
+NRST pin:  3 (rst pin) 
+BUSY pin:  9 (gpio Pin)
+SX1262 radio = new Module(10, 2, 3, 9);
+Module(cs, irq, rst, gpio) 
 ```
 
 hmu if you have any questions, maybe i can help (::
